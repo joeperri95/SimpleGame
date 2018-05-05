@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=Joe
-Date                   :=21/03/18
+Date                   :=04/05/18
 CodeLitePath           :=/home/joe/.codelite
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/MyTexture.cpp$(ObjectSuffix) $(IntermediateDirectory)/Character.cpp$(ObjectSuffix) $(IntermediateDirectory)/Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/MainCharacter.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/MyTexture.cpp$(ObjectSuffix) $(IntermediateDirectory)/Character.cpp$(ObjectSuffix) $(IntermediateDirectory)/Game.cpp$(ObjectSuffix) $(IntermediateDirectory)/GameObject.cpp$(ObjectSuffix) 
 
 
 
@@ -123,13 +123,13 @@ $(IntermediateDirectory)/Game.cpp$(DependSuffix): Game.cpp
 $(IntermediateDirectory)/Game.cpp$(PreprocessSuffix): Game.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Game.cpp$(PreprocessSuffix) Game.cpp
 
-$(IntermediateDirectory)/MainCharacter.cpp$(ObjectSuffix): MainCharacter.cpp $(IntermediateDirectory)/MainCharacter.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/joe/Workspace/Cpp/GameEngine/MainCharacter.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/MainCharacter.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/MainCharacter.cpp$(DependSuffix): MainCharacter.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/MainCharacter.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/MainCharacter.cpp$(DependSuffix) -MM MainCharacter.cpp
+$(IntermediateDirectory)/GameObject.cpp$(ObjectSuffix): GameObject.cpp $(IntermediateDirectory)/GameObject.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "/home/joe/Workspace/Cpp/GameEngine/GameObject.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/GameObject.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/GameObject.cpp$(DependSuffix): GameObject.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/GameObject.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/GameObject.cpp$(DependSuffix) -MM GameObject.cpp
 
-$(IntermediateDirectory)/MainCharacter.cpp$(PreprocessSuffix): MainCharacter.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/MainCharacter.cpp$(PreprocessSuffix) MainCharacter.cpp
+$(IntermediateDirectory)/GameObject.cpp$(PreprocessSuffix): GameObject.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/GameObject.cpp$(PreprocessSuffix) GameObject.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

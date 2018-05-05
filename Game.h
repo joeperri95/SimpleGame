@@ -21,6 +21,7 @@ public:
 	void init();
 	void render();
 	void update();
+	void loop();
 	void addEnemy(int x, int y, std::string filePath);
 	void addEnemy(Character* c);
 	void removeEnemy(int i);

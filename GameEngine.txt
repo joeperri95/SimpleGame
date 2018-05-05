@@ -1,1 +1,1 @@
-./Debug/main.cpp.o ./Debug/MyTexture.cpp.o ./Debug/Character.cpp.o ./Debug/Game.cpp.o ./Debug/MainCharacter.cpp.o
+./Debug/main.cpp.o ./Debug/MyTexture.cpp.o ./Debug/Character.cpp.o ./Debug/Game.cpp.o ./Debug/GameObject.cpp.o

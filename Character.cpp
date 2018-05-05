@@ -1,6 +1,6 @@
 #include "Character.h"
 
-Character::Character(){
+Character::Character() : GameObject() {
 	
 	this->texture = new MyTexture();
 	this->x = 0;
@@ -9,17 +9,10 @@ Character::Character(){
 	this->yVelocity = 0.0;
 }
 
-Character::Character(int x, int y){
+Character::Character(int x, int y, SDL_Renderer* renderer, MyTexture* tex) : GameObject(x, y, tex, renderer){
 	this->x = x;
 	this->y = y;
-	this->xVelocity = 0.0;
-	this->yVelocity = 0.0;
-}
-
-Character::Character(int x, int y, MyTexture* tex){
-	this->x = x;
-	this->y = y;
-	this->setTexture(tex);
+	this->setTexture(renderer, tex);
 	this->xVelocity = 0.0;
 	this->yVelocity = 0.0;
 }
@@ -35,13 +28,13 @@ Character::Character(int x, int y, SDL_Renderer* renderer, std::string filePath)
 Character::~Character(){
 	
 }
-
+ 
 void Character::render(SDL_Renderer* renderer){
 	this->texture->render(renderer, this->x, this->y);
 }
 
-void Character::setTexture(MyTexture *tex){
-	this->texture = tex;
+void Character::setTexture(SDL_Renderer* renderer, MyTexture *tex){
+	this->texture = new MyTexture(renderer, tex);
 }
 
 void Character::setX(int x){
@@ -79,4 +72,8 @@ void Character::setYVelocity(double yV){
 
 MyTexture* Character::getTexture(){
 	return this->texture;
+}
+
+int Character::getWidth(){
+	return this->texture->getWidth();
 }

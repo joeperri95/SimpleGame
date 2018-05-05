@@ -10,12 +10,14 @@ class MyTexture{
 	
 private:
 	
-	SDL_Texture* tex;
+	SDL_Texture* texture;
 	int width, height;
 	
 public:
 	
 	MyTexture();
+	MyTexture(SDL_Texture* texture, int width, int height);
+	MyTexture(SDL_Renderer* renderer, MyTexture* other);
 	MyTexture(SDL_Renderer* renderer, std::string filePath);
 	~MyTexture();
 	

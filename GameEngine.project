@@ -10,8 +10,8 @@
     <File Name="MyTexture.cpp"/>
     <File Name="Character.cpp"/>
     <File Name="Game.cpp"/>
-    <File Name="MainCharacter.h"/>
-    <File Name="MainCharacter.cpp"/>
+    <File Name="GameObject.h"/>
+    <File Name="GameObject.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="res">
     <File Name="res/Untitled.png"/>

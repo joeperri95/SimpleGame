@@ -7,14 +7,12 @@
 int main(int argc, char **argv)
 {
 	
-	int lim = 10;
-	int mao = 20;
-	Character* c = new Character();
-	MyTexture* m = new MyTexture();
 	Game* g = new Game();
 	
 	g->init();
+	g->loop();
 	
+	/*
 	bool done = false;
 	bool keyStates[5];
 	SDL_Event e;
@@ -44,9 +42,8 @@ int main(int argc, char **argv)
 				
 			}
 		}
-			
-	
 		
+
 		g->render();
 		g->update();
 		SDL_Delay(20);
@@ -54,5 +51,7 @@ int main(int argc, char **argv)
 	}
 	
 	SDL_Quit();
+	
+	 */
 	return 0;
 }

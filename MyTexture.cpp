@@ -3,13 +3,19 @@
 MyTexture::MyTexture(){
 	this->width = 0;
 	this->height = 0;
-	this->tex = NULL;
+	this->texture = NULL;
 }
 
 MyTexture::MyTexture(SDL_Renderer* renderer, std::string filePath){
-	loadTexture(renderer, filePath);
+	this->loadTexture(renderer, filePath);
 }
 
+
+MyTexture::MyTexture(SDL_Renderer* renderer, MyTexture* other){
+	this->width = other->getWidth();
+	this->height = other->getHeight();
+	//this->texture = new  
+}
 
 MyTexture::~MyTexture(){
 	
@@ -19,15 +25,15 @@ void MyTexture::loadTexture(SDL_Renderer* renderer, std::string filePath){
 	
 	SDL_Surface* tempSurface = IMG_Load( filePath.c_str());
 	
-	this->height = tempSurface->h;
-	this->width = tempSurface->w;
-	
 	if(tempSurface == NULL){
 		std::cout << "Error could not load texture: " << filePath << " " << SDL_GetError() << std::endl;
 	}
 	
-	this->tex = SDL_CreateTextureFromSurface(renderer, tempSurface);
-	if(this->tex == NULL){
+	this->height = tempSurface->h;
+	this->width = tempSurface->w;
+	
+	this->texture = SDL_CreateTextureFromSurface(renderer, tempSurface);
+	if(this->texture == NULL){
 		std::cout << "Could not create texture: " << SDL_GetError() << std::endl;
 	}
 	
@@ -44,7 +50,7 @@ void MyTexture::render(SDL_Renderer* renderer, int x, int y, SDL_Rect* clip){
 		drawRegion.h = clip->h;
 	}
 	
-	SDL_RenderCopy(renderer, this->tex, clip, &drawRegion);	
+	SDL_RenderCopy(renderer, this->texture, clip, &drawRegion);	
 }
 
 int MyTexture::getHeight(){
@@ -56,5 +62,5 @@ int MyTexture::getWidth(){
 }
 
 SDL_Texture* MyTexture::getTexture(){
-	return this->tex;
+	return this->texture;
 }
