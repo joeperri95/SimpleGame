@@ -16,6 +16,8 @@
   <VirtualDirectory Name="res">
     <File Name="res/Untitled.png"/>
     <File Name="res/yoot.png"/>
+    <File Name="res/char.png"/>
+    <File Name="res/lazy.ttf"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
@@ -31,7 +33,7 @@
       <Compiler Options="-g;-O0;-Wall; -I/usr/local/include " C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
         <IncludePath Value="."/>
       </Compiler>
-      <Linker Options="-lSDL2; -lSDL2_image" Required="yes"/>
+      <Linker Options="-lSDL2;-lSDL2_image;-lSDL2_ttf;-lSDL2_mixer" Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>
       <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Debug" Command="./$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
       <BuildSystem Name="Default"/>

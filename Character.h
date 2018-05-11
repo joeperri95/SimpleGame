@@ -5,6 +5,15 @@
 #include "GameObject.h"
 #include <string>
 
+enum PlayerState{
+	IDLE,
+	LEFT,
+	RIGHT,
+	UP,
+	DOWN
+};
+
+
 class Character : public GameObject{
 	
 private:
@@ -12,6 +21,7 @@ private:
 	int x, y;
 	double xVelocity, yVelocity;
 	MyTexture* texture;	
+	PlayerState state;
 	
 public:
 	
