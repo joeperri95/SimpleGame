@@ -12,12 +12,16 @@
     <File Name="Game.cpp"/>
     <File Name="GameObject.h"/>
     <File Name="GameObject.cpp"/>
+    <File Name="Timer.h"/>
+    <File Name="Timer.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="res">
     <File Name="res/Untitled.png"/>
     <File Name="res/yoot.png"/>
     <File Name="res/char.png"/>
     <File Name="res/lazy.ttf"/>
+    <File Name="res/heart.png"/>
+    <File Name="res/rock.png"/>
   </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>

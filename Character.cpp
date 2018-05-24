@@ -5,6 +5,8 @@ Character::Character() : GameObject() {
 	this->texture = new MyTexture();
 	this->x = 0;
 	this->y = 0;
+	this->health = 0;
+	this->immune = false;
 	this->state = IDLE;
 	this->xVelocity = 0.0;
 	this->yVelocity = 0.0;
@@ -13,6 +15,8 @@ Character::Character() : GameObject() {
 Character::Character(int x, int y, SDL_Renderer* renderer, MyTexture* tex) : GameObject(x, y, tex, renderer){
 	this->x = x;
 	this->y = y;
+	this->health = 3;
+	this->immune = false;
 	this->setTexture(renderer, tex);
 	this->state = IDLE;
 	this->xVelocity = 0.0;
@@ -22,6 +26,8 @@ Character::Character(int x, int y, SDL_Renderer* renderer, MyTexture* tex) : Gam
 Character::Character(int x, int y, SDL_Renderer* renderer, std::string filePath){
 	this->x = x;
 	this->y = y;
+	this->health = 3;
+	this->immune = false;
 	this->texture = new MyTexture(renderer, filePath);
 	this->state = IDLE;
 	this->xVelocity = 0.0;
@@ -57,7 +63,29 @@ void Character::render(SDL_Renderer* renderer){
 		break;
 	}
 	
-	this->texture->render(renderer, this->x, this->y, &clip);
+	this->texture->setClip(&clip);
+	this->texture->render(renderer, this->x, this->y);
+}
+
+void Character::takeDamage(int damage){
+	if(this->immune){
+		return;
+	}
+	else{
+		this->setHealth(this->getHealth() - damage);
+		
+		if(this->isAlive()){
+			this->immune = true;
+		}
+	}
+}
+
+void Character::setImmune(bool in){
+	this->immune = in;
+}
+
+void Character::setHealth(int newHealth){
+	this->health = newHealth;
 }
 
 void Character::setTexture(SDL_Renderer* renderer, MyTexture *tex){
@@ -80,6 +108,10 @@ int Character::getY(){
 	return this->y;
 }
 
+int Character::getHealth(){
+	return this->health;
+}
+
 double Character::getXVelocity(){
 	return this->xVelocity;
 }
@@ -88,6 +120,13 @@ double Character::getYVelocity(){
 	return this->yVelocity;
 }
 
+bool Character::isAlive(){
+	return this->health > 0;
+}
+
+bool Character::isImmune(){
+	return this->immune;
+}
 
 void Character::setXVelocity(double xV){
 	
@@ -127,3 +166,7 @@ int Character::getWidth(){
 	return this->texture->getWidth();
 }
 
+
+int Character::getHeight(){
+	return this->texture->getHeight();
+}

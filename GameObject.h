@@ -16,7 +16,7 @@ public:
 	
 	~GameObject();
 	
-	void render();
+	void render(SDL_Renderer* renderer);
 
 	int getX();
 	int getY();

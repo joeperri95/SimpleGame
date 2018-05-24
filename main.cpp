@@ -14,14 +14,13 @@ void test();
 int main(int argc, char **argv)
 {
 	
-	test();
+	//test();
 	
-	/*
 	Game* g = new Game();
 	
 	g->init();
 	g->loop();
-	*/
+	
 	return 0;
 }
 

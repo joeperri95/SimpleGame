@@ -32,6 +32,12 @@ int GameObject::getY(){
 	return this->y;
 }
 
+void GameObject::render(SDL_Renderer* renderer){
+	
+	this->texture->render(renderer, this->x, this->y);
+ 	
+}
+
 void GameObject::setX(int x){
 	this->x = x;
 }
@@ -39,6 +45,7 @@ void GameObject::setX(int x){
 void GameObject::setY(int y){
 	this->y = y;
 }
+
 
 int GameObject::getHeight(){
 	return this->texture->getHeight();

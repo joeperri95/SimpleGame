@@ -1,7 +1,8 @@
 #include "Character.h"
 #include "MyTexture.h"
 #include <vector>
-
+#include <string>
+#include <sstream>	
 
 enum GameState{
 	
@@ -25,6 +26,12 @@ private:
 	std::vector<Character*> enemies;
 	std::vector<GameObject*> scenery;
 	MyTexture* background;
+	MyTexture* hearts;
+	MyTexture* gameOverFont;
+	MyTexture* pauseFont;
+	Timer* fpsTimer;
+	Timer* immuneTimer;
+	int countedFrames;
 	
 public:
 	
