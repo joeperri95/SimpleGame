@@ -14,6 +14,8 @@
     <File Name="GameObject.cpp"/>
     <File Name="Timer.h"/>
     <File Name="Timer.cpp"/>
+    <File Name="Bullet.h"/>
+    <File Name="Bullet.cpp"/>
   </VirtualDirectory>
   <VirtualDirectory Name="res">
     <File Name="res/Untitled.png"/>

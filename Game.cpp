@@ -101,9 +101,11 @@ void Game::render(){
 			{
 				
 			background->render(renderer,0,0);
-		
 			
-		
+			if(mainCharacter->b != NULL){
+				mainCharacter->b->render(renderer);
+			}
+			
 			for(std::vector<Character*>::iterator i = this->enemies.begin(); i != this->enemies.end(); ++i){
 				(*i)->render(this->renderer);
 			}
@@ -157,7 +159,10 @@ void Game::update(){
 			
 			else{
 				
+				if(mainCharacter->b != NULL){
+					mainCharacter->b->move();
 				
+				}
 				
 				int newX = mainCharacter->getX() + mainCharacter->getXVelocity();
 				int newY = mainCharacter->getY() + mainCharacter->getYVelocity();
@@ -312,8 +317,8 @@ void Game::loop(){
 	bool quit = false;
 	SDL_Event e;
 	
-	//corresponds to W      A      S     D
-	bool keys[4] = {false,false,false,false};
+	//corresponds to W      A      S     D  
+	bool keys[5] = {false,false,false,false};
 	
 	while(!quit){
 		
@@ -353,6 +358,9 @@ void Game::loop(){
 							state = Running;
 						}
 						break;
+					case SDLK_e:
+						mainCharacter->shoot(this->renderer);
+					break;
 				}
 			}
 			

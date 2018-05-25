@@ -10,6 +10,7 @@ Character::Character() : GameObject() {
 	this->state = IDLE;
 	this->xVelocity = 0.0;
 	this->yVelocity = 0.0;
+	this->lastShot = 0;
 }
 
 Character::Character(int x, int y, SDL_Renderer* renderer, MyTexture* tex) : GameObject(x, y, tex, renderer){
@@ -21,6 +22,7 @@ Character::Character(int x, int y, SDL_Renderer* renderer, MyTexture* tex) : Gam
 	this->state = IDLE;
 	this->xVelocity = 0.0;
 	this->yVelocity = 0.0;
+	this->lastShot = 0;
 }
 
 Character::Character(int x, int y, SDL_Renderer* renderer, std::string filePath){
@@ -32,6 +34,7 @@ Character::Character(int x, int y, SDL_Renderer* renderer, std::string filePath)
 	this->state = IDLE;
 	this->xVelocity = 0.0;
 	this->yVelocity = 0.0;
+	this->lastShot = 0;
 }
 
 Character::~Character(){
@@ -169,4 +172,8 @@ int Character::getWidth(){
 
 int Character::getHeight(){
 	return this->texture->getHeight();
+}
+
+void Character::shoot(SDL_Renderer* renderer){
+	this->b = new Bullet(this->x, this->y, renderer, b_DOWN_LEFT);
 }

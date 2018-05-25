@@ -1,6 +1,7 @@
 #ifndef Character_H
 #define Character_H
 
+#include "Bullet.h"
 #include "MyTexture.h"
 #include "GameObject.h"
 #include "Timer.h"
@@ -11,7 +12,12 @@ enum PlayerState{
 	LEFT,
 	RIGHT,
 	UP,
-	DOWN
+	DOWN,
+	UP_LEFT,
+	UP_RIGHT,
+	DOWN_LEFT,
+	DOWN_RIGHT
+	
 };
 
 
@@ -21,12 +27,16 @@ private:
 	
 	int x, y;
 	bool immune;
+	Uint32 lastShot;
 	int health;
 	double xVelocity, yVelocity;
 	MyTexture* texture;	
 	PlayerState state;
 	
+	
 public:
+	
+	Bullet* b;
 	
 	Character();
 	Character(int x, int y, SDL_Renderer* renderer, MyTexture* tex);
@@ -44,7 +54,7 @@ public:
 	void setHealth(int newHealth);
 	void takeDamage(int damage);
 	void setImmune(bool in);
-	
+	void shoot(SDL_Renderer* renderer);
 	MyTexture* getTexture();
 	int getX();
 	int getY();
